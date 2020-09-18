@@ -15,11 +15,15 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const connection_1 = __importDefault(require("./../config/connection"));
 const mongoose_1 = __importDefault(require("mongoose"));
 const await_to_js_1 = __importDefault(require("await-to-js"));
+const colors_1 = __importDefault(require("colors"));
 const MongoClient = require('mongodb').MongoClient;
 const { connectionString, connectionOptions, databaseName } = connection_1.default;
 const connectToDatabase = () => __awaiter(void 0, void 0, void 0, function* () {
     const [error, _] = yield await_to_js_1.default(mongoose_1.default.connect(connectionString, connectionOptions));
-    console.log({ databaseName, error });
+    if (error)
+        console.log({ error });
+    else
+        console.log(colors_1.default.green("CONNECT TO ") + colors_1.default.blue(databaseName));
     mongoose_1.default.set('useFindAndModify', false);
 });
 exports.default = connectToDatabase;
