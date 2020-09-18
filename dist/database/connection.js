@@ -21,7 +21,7 @@ const { connectionString, connectionOptions, databaseName } = connection_1.defau
 const connectToDatabase = () => __awaiter(void 0, void 0, void 0, function* () {
     const [error, _] = yield await_to_js_1.default(mongoose_1.default.connect(connectionString, connectionOptions));
     if (error)
-        console.log({ error });
+        console.log(error);
     else
         console.log(colors_1.default.green("CONNECT TO ") + colors_1.default.blue(databaseName));
     mongoose_1.default.set('useFindAndModify', false);

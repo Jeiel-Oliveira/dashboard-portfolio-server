@@ -10,7 +10,6 @@ const databaseName = DATABASE_NAME;
 const username = DATABASE_USERNAME;
 const password = DATABASE_PASSWORD;
 const connectionString = `mongodb+srv://${username}:${password}@${cluster}/${databaseName}?retryWrites=true&w=majority`;
-console.log(connectionString);
 const connectionOptions = {
     useCreateIndex: true,
     useNewUrlParser: true,
