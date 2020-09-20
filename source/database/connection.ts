@@ -8,10 +8,11 @@ const MongoClient = require('mongodb').MongoClient
 const { connectionString, connectionOptions, databaseName } = connection
 
 const connectToDatabase = async () => {
-  const [error, _] = await to(mongoose.connect(connectionString, connectionOptions))
+  const [error, _] = await to(mongoose.connect(connectionString, connectionOptions))  
 
   if(error) console.log(error)
-  else console.log(colors.green("CONNECT TO ") + colors.blue(databaseName))
+
+  console.log(colors.green("CONNECT TO ") + colors.blue(databaseName))
 
   mongoose.set('useFindAndModify', false)
 }
