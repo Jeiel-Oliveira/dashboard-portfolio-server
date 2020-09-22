@@ -15,6 +15,7 @@
     "express": "^4.17.1",
     "extenso": "^2.0.1",
     "http-status-codes": "^2.1.4",
+    "moment": "^2.28.0",
     "mongodb": "^3.6.2",
     "mongoose": "^5.10.5",
     "nodemon": "^2.0.4",
