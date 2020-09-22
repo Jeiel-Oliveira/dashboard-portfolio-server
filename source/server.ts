@@ -5,8 +5,6 @@ import colors from 'colors'
 import router from './router'
 import connectToDatabase from './database/connection'
 
-import { capitalize } from './helpers/format'
-
 const app = express()
 
 app.use(express.urlencoded({ extended: false }))

@@ -1,8 +1,12 @@
-import mongoose from 'mongoose'
-import to from 'await-to-js'
+import mongoose from 'mongoose';
+import to from 'await-to-js';
 
-import { Request, Response } from 'express'
-import Button from '../../models/Button'
+import { Request, Response } from 'express';
+import Button from '../../models/Button';
+
+import status from '../../helpers/status';
+
+const file = "ButtonController.ts"
 
 class ButtonController {
   
@@ -13,21 +17,17 @@ class ButtonController {
 
   // POST /create
   async create(request: Request, response: Response) {
-    const { name, text, css } = request.body
-
-    if(!name) return ({ code: 422, message: "Campo obrigatório: Nome." })
-    if(!text) return ({ code: 422, message: "Campo obrigatório: Text." })
-    if(!text) return ({ code: 422, message: "Campo obrigatório: Css." })
+    const { name, text, css } = request.body    
 
     const [createError, button] = await to(Button.create({
       name, text, css
     }))
 
     if(createError) {
-      return ({ code: 422, message: "Erro ao criar botão." })
+      return status.error(file, request, response, createError, "Ocorreu um erro ao criar o botão")
     }
 
-    return ({ code: 201, message: "Botão criado com sucesso", created: button })
+    return status.success(response, "Criação do botão realizada com sucesso!")
   }
 
 }

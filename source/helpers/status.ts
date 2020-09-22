@@ -17,7 +17,7 @@ const error = async(file:string, request: Request, response: Response, exception
   })
 }
 
-// Error 5034 unavbailable
+// Error 503 unavbailable
 const { SERVICE_UNAVAILABLE } = HttpStatus
 const notWorking = async (file: string, request: any, response: Response, exception: Error | null = Error('No error'), message?: string, content?: any) => {
   message = message || "Não foi possível realizar a solicitação! Tente novamente mais tarde."
